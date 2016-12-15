@@ -16,7 +16,8 @@ export default class PhotoView extends Component {
                 minimumZoomScale={this.props.minimumZoomScale}>
 
                 <TouchableWithoutFeedback
-                    onPress={this.props.onTap ? this.props.onTap : function() {}}>
+                    onLongPress={this.props.onLongTap}
+                    onPress={this.props.onTap}>
 
                     <Image {...this.props}/>
 
@@ -26,3 +27,8 @@ export default class PhotoView extends Component {
         );
     }
 }
+
+PhotoView.defaultProps = {
+  onLongTap: function() {},
+  onTap: function() {}
+};
